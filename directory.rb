@@ -1,35 +1,23 @@
-# put all students into an array
-students = [
-  { name: 'Dr. Hannibal Lecter', cohort: :november },
-  { name: 'Darth Vader', cohort: :november },
-  { name: 'Nurse Ratched', cohort: :november },
-  { name: 'Michael Corleone', cohort: :november },
-  { name: 'Alex DeLarge', cohort: :november },
-  { name: 'The Wicked Witch of the West', cohort: :november },
-  { name: 'Terminator', cohort: :november },
-  { name: 'Freddy Krueger', cohort: :november },
-  { name: 'The Joker', cohort: :november },
-  { name: 'Joffrey Baratheon', cohort: :november },
-  { name: 'Norman Bates', cohort: :november }
-]
+def input_student
+  puts 'Please enter the names of the students'
+  puts 'To finish, please hit entere twice'
 
-def print_header
-  puts('The students of Villains Academy')
-  puts('-------------')
-end
+  students = []
 
-def print(students)
-  students.each do |student|
-    puts "#{student[:name]} (#{student[:cohort]} cohort)"
+  name = gets.chomp
+
+  until name.empty?
+
+    students << { name: name, cohort: :november }
+    puts "Now we have #{students.count} students"
+
+    name = gets.chomp
   end
+
+  students
 end
 
-def print_footer(names)
-  puts ' '
-  puts "Overall, we have #{names.count} great students"
-end
-
-# nothing happens until we call methods
+students = input_student
 print_header
 print(students)
 print_footer(students)
